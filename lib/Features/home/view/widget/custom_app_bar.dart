@@ -7,15 +7,18 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.only(right: 7, top: 35),
       child: Row(
         children: [
-          SizedBox(
-            height: 130,
-            width: 130,
-            child: Image.asset('assets/Bookly-logo.png'),
+          Expanded(
+            child: Image.asset(
+              'assets/Bookly-logo.png',
+              height: 100,
+            ),
           ),
-          const Spacer(),
+          const Spacer(
+            flex: 2,
+          ),
           const Padding(
             padding: EdgeInsets.only(right: 30, bottom: 10),
             child: Icon(
