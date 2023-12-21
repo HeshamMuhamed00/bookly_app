@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
-
+  const CustomAppBar({super.key, required this.icon});
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,12 +18,9 @@ class CustomAppBar extends StatelessWidget {
           const Spacer(
             flex: 2,
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 30, bottom: 10),
-            child: Icon(
-              FontAwesomeIcons.magnifyingGlass,
-              size: 30,
-            ),
+          Padding(
+            padding: const EdgeInsets.only(right: 30, bottom: 10),
+            child: Icon(icon),
           ),
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:bookly_app/Features/home/view/widget/custom_app_bar.dart';
 import 'package:bookly_app/Features/home/view/widget/custom_best_seller_text.dart';
 import 'package:bookly_app/Features/home/view/widget/list_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -15,7 +16,9 @@ class HomeViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAppBar(),
+              CustomAppBar(
+                icon: FontAwesomeIcons.magnifyingGlass,
+              ),
               ListViewBody(),
               SizedBox(
                 height: 32,
