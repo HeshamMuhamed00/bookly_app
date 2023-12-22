@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/view/widget/book_details_button.dart';
 import 'package:bookly_app/Features/home/view/widget/book_details_item.dart';
 import 'package:bookly_app/Features/home/view/widget/book_rating.dart';
 import 'package:bookly_app/Features/home/view/widget/custom_app_bar.dart';
@@ -11,7 +12,6 @@ class BookDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CustomAppBar(
           icon: FontAwesomeIcons.cartShopping,
@@ -29,7 +29,16 @@ class BookDetailsViewBody extends StatelessWidget {
           'Rudyard Kipling',
           style: Styles.style20,
         ),
-        BookRating(),
+        SizedBox(
+          height: 4,
+        ),
+        BookRating(
+          mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        BookDetailsButton(),
       ],
     );
   }
