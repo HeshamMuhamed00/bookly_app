@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/widget/custom_loding_indecator.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomListViewItem extends StatelessWidget {
@@ -7,17 +9,17 @@ class CustomListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
-      child: AspectRatio(
-        aspectRatio: 2.7 / 4,
-        child: Container(
-          height: 240,
-          width: 160,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: NetworkImage(imageUrl),
-            ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: AspectRatio(
+          aspectRatio: 2.7 / 4,
+          child: CachedNetworkImage(
+            placeholder: (context, url) =>
+                const Center(child: CustomLodingIndecator()),
+            errorWidget: (context, url, error) =>
+                const Icon(Icons.nearby_error_outlined),
+            fit: BoxFit.fill,
+            imageUrl: imageUrl,
           ),
         ),
       ),
