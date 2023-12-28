@@ -17,7 +17,7 @@ class CustomListViewItem extends StatelessWidget {
             placeholder: (context, url) =>
                 const Center(child: CustomLodingIndecator()),
             errorWidget: (context, url, error) =>
-                const Icon(Icons.nearby_error_outlined),
+                const Icon(Icons.error_outline_sharp),
             fit: BoxFit.fill,
             imageUrl: imageUrl,
           ),

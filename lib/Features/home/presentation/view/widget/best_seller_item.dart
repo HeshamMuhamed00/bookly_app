@@ -1,6 +1,8 @@
 import 'package:bookly_app/Features/home/presentation/view/widget/book_rating.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/core/widget/custom_loding_indecator.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -15,17 +17,18 @@ class BestSellerItem extends StatelessWidget {
         children: [
           SizedBox(
             height: 130,
-            child: AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  image: DecorationImage(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: AspectRatio(
+                  aspectRatio: 2.5 / 4,
+                  child: CachedNetworkImage(
+                    placeholder: (context, url) =>
+                        const Center(child: CustomLodingIndecator()),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error_sharp),
                     fit: BoxFit.fill,
-                    image: NetworkImage(imageNewsetUrl),
-                  ),
-                ),
-              ),
+                    imageUrl: imageNewsetUrl,
+                  )),
             ),
           ),
           const SizedBox(
