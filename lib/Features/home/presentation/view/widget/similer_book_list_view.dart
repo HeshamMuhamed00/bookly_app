@@ -13,7 +13,10 @@ class SimilerBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const CustomListViewItem();
+          return const CustomListViewItem(
+            imageUrl:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc2JOwcEiV5l__x-gG8bVr5EIYBbB4v1C_ig&usqp=CAU',
+          );
         },
       ),
     );

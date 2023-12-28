@@ -4,8 +4,8 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key});
-
+  const BestSellerItem({super.key, required this.imageNewsetUrl});
+  final String imageNewsetUrl;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,10 +20,9 @@ class BestSellerItem extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(14),
-                  image: const DecorationImage(
+                  image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc2JOwcEiV5l__x-gG8bVr5EIYBbB4v1C_ig&usqp=CAU'),
+                    image: NetworkImage(imageNewsetUrl),
                   ),
                 ),
               ),
