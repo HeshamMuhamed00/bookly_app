@@ -26,8 +26,7 @@ class BestSellerListView extends StatelessWidget {
                 itemCount: state.books.length,
                 itemBuilder: (context, index) {
                   return BestSellerItem(
-                    imageNewsetUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                    bookModel: state.books[index],
                   );
                 },
               ),

@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/Data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/view/widget/book_rating.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -6,8 +7,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key, required this.imageNewsetUrl});
-  final String imageNewsetUrl;
+  const BestSellerItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,7 +28,7 @@ class BestSellerItem extends StatelessWidget {
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error_sharp),
                     fit: BoxFit.fill,
-                    imageUrl: imageNewsetUrl,
+                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
                   )),
             ),
           ),
@@ -41,7 +42,7 @@ class BestSellerItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    'Harry Potter and the Goblet of Fire Harry Potter and the Goblet of Fire',
+                    bookModel.volumeInfo.title!,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.start,
@@ -51,9 +52,9 @@ class BestSellerItem extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                const Text(
-                  'J.K Rowling',
-                  style: Styles.style14,
+                Text(
+                  bookModel.volumeInfo.authors![0],
+                  style: Styles.style16.copyWith(fontWeight: FontWeight.w200),
                 ),
                 const SizedBox(
                   height: 3,

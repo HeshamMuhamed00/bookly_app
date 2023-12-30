@@ -9,7 +9,7 @@ class CustomBestSellerText extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Text(
-        'Best Seller',
+        'Newset Books',
         style: Styles.style18,
       ),
     );
