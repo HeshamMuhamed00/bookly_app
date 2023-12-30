@@ -5,6 +5,7 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/core/widget/custom_loding_indecator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({super.key, required this.bookModel});
@@ -16,20 +17,25 @@ class BestSellerItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 130,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: AspectRatio(
-                  aspectRatio: 2.5 / 4,
-                  child: CachedNetworkImage(
-                    placeholder: (context, url) =>
-                        const Center(child: CustomLodingIndecator()),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error_sharp),
-                    fit: BoxFit.fill,
-                    imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
-                  )),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).push('/bookDetailsView', extra: bookModel);
+            },
+            child: SizedBox(
+              height: 130,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: AspectRatio(
+                    aspectRatio: 2.5 / 4,
+                    child: CachedNetworkImage(
+                      placeholder: (context, url) =>
+                          const Center(child: CustomLodingIndecator()),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error_sharp),
+                      fit: BoxFit.fill,
+                      imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                    )),
+              ),
             ),
           ),
           const SizedBox(
