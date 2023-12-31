@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/Data/models/book_model/book_model.dart';
 import 'package:bookly_app/Features/home/presentation/view/widget/book_details_button.dart';
 import 'package:bookly_app/Features/home/presentation/view/widget/book_details_item.dart';
 import 'package:bookly_app/Features/home/presentation/view/widget/book_rating.dart';
@@ -8,42 +9,44 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+  const BookDetailsViewBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        CustomAppBar(
+        const CustomAppBar(
           icon: FontAwesomeIcons.cartShopping,
         ),
-        BookDetailsItem(),
-        SizedBox(
+        BookDetailsItem(
+          bookModel: bookModel,
+        ),
+        const SizedBox(
           height: 10,
         ),
         Text(
-          'The Black Book',
+          bookModel.volumeInfo.title.toString(),
           style: Styles.style30,
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
-          'Rudyard Kipling',
+          bookModel.volumeInfo.authors![0],
           style: Styles.style20,
         ),
-        SizedBox(
+        const SizedBox(
           height: 4,
         ),
-        BookRating(
+        const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        BookDetailsButton(),
-        SizedBox(
+        const BookDetailsButton(),
+        const SizedBox(
           height: 50,
         ),
-        Align(
+        const Align(
           alignment: Alignment.centerLeft,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 22),
@@ -54,10 +57,10 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
-        SimilerBooksListView(),
+        const SimilerBooksListView(),
       ],
     );
   }

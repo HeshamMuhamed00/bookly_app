@@ -12,7 +12,7 @@ class BookDetailsButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomButton(
-            text: '19.99 €',
+            text: 'Free',
             fontColor: Colors.black,
             color: Colors.white,
             borderRadius: BorderRadius.only(
