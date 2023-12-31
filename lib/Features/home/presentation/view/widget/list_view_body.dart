@@ -4,6 +4,7 @@ import 'package:bookly_app/core/widget/custom_error.dart';
 import 'package:bookly_app/core/widget/custom_loding_indecator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class ListViewBody extends StatelessWidget {
   const ListViewBody({super.key});
@@ -20,8 +21,15 @@ class ListViewBody extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return CustomListViewItem(
-                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                return GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context)
+                        .push('/bookDetailsView', extra: state.books[index]);
+                  },
+                  child: CustomListViewItem(
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
                 );
               },
             ),
