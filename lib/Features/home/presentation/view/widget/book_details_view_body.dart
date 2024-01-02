@@ -13,55 +13,60 @@ class BookDetailsViewBody extends StatelessWidget {
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomAppBar(
-          icon: FontAwesomeIcons.cartShopping,
-        ),
-        BookDetailsItem(
-          bookModel: bookModel,
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        Text(
-          bookModel.volumeInfo.title.toString(),
-          style: Styles.style30,
-        ),
-        const SizedBox(height: 4),
-        Text(
-          bookModel.volumeInfo.authors![0],
-          style: Styles.style20,
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        const BookRating(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        const BookDetailsButton(),
-        const SizedBox(
-          height: 50,
-        ),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 22),
-            child: Text(
-              'You Can Also Like',
-              style: Styles.style16,
-              textAlign: TextAlign.start,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const CustomAppBar(
+            icon: FontAwesomeIcons.cartShopping,
+          ),
+          BookDetailsItem(
+            bookModel: bookModel,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Text(
+            textAlign: TextAlign.center,
+            bookModel.volumeInfo.title.toString(),
+            style: Styles.style30,
+          ),
+          const SizedBox(height: 4),
+          Text(
+            bookModel.volumeInfo.authors![0],
+            style: Styles.style20,
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          BookDetailsButton(
+            bookModel: bookModel,
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 22),
+              child: Text(
+                'You Can Also Like',
+                style: Styles.style16,
+                textAlign: TextAlign.start,
+              ),
             ),
           ),
-        ),
-        const SizedBox(
-          height: 24,
-        ),
-        const SimilerBooksListView(),
-      ],
+          const SizedBox(
+            height: 24,
+          ),
+          const SimilerBooksListView(),
+        ],
+      ),
     );
   }
 }

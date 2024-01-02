@@ -2,7 +2,7 @@ import 'package:bookly_app/Features/home/Data/models/book_model/book_model.dart'
 import 'package:bookly_app/Features/home/presentation/view/widget/book_rating.dart';
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widget/custom_loding_indecator.dart';
+import 'package:bookly_app/core/widget/custom_shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +29,7 @@ class BestSellerItem extends StatelessWidget {
                     aspectRatio: 2.5 / 4,
                     child: CachedNetworkImage(
                       placeholder: (context, url) =>
-                          const Center(child: CustomLodingIndecator()),
+                          const Center(child: CustomShimmer()),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error_sharp),
                       fit: BoxFit.fill,

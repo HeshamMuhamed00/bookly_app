@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class BookDetailsItem extends StatelessWidget {
   const BookDetailsItem({super.key, required this.bookModel});
   final BookModel bookModel;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

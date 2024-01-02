@@ -29,7 +29,7 @@ class SimilerBooksListView extends StatelessWidget {
         } else if (state is SimilerBooksFailure) {
           return CustomError(errMessage: state.errMessage);
         } else {
-          return const CustomLodingIndecator();
+          return const Center(child: CustomLodingIndecator());
         }
       },
     );
